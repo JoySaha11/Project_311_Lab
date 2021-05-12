@@ -1,5 +1,5 @@
 <?php 
-$link = mysqli_connect("localhost", "root", "", "fineart"); 
+$link = mysqli_connect("localhost", "root", "", "fine_art"); 
 
 if($link === false){
              die("ERROR: Could not connect. " . mysqli_connect_error()); 
