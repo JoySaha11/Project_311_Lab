@@ -8,16 +8,16 @@
 	  $email = $_POST['email'];
 	  
    $sql = "select * from user_info where USER_ID= '$user_id' and EMAIL = '$email'";
-   $result = mysqli_query($conn,$sql);
-   $count = mysqli_num_rows($result);
-   
-   if($count ==1){
-	   echo "Login Success";
-   }
-   else{
-	   echo "login failed";
-   }
-   
-  }
+  
+   header("location: profile_page.php?remarks=success");
 
+   $result=mysqli_query($con,$sql);
+ $row=mysqli_fetch_array($result);
+ $active=$row['active'];
+ $count=mysqli_num_rows($result);
+ if($count==1) {
+  $_SESSION['login_user']=$user_id;
+
+ }
+}
 ?>
