@@ -1,6 +1,10 @@
 <?php 
+/*
 	include "db_connect.php";
+*/
+/*
 	include "index.html";
+*/
  ?>
  <!DOCTYPE html>
  <html>
@@ -31,16 +35,17 @@
  						</script>
  					<?php
  				}
- 				$q=mysqli_query($db,"SELECT * FROM user_info where USER_ID='$_SESSION[login_user]' ;");
+ 				$q=mysqli_query($db,"SELECT * FROM user_info where USER_ID='$user_id' ;");
  			?>
  			<h2 style="text-align: center;">My Profile Information</h2>
 
  			<?php
  				$row=mysqli_fetch_assoc($q);
 
- 			
-                 <div style="text-align: center;"> <b> Welcome </b>
+ 			?>
+                 <div style="text-align: center;"> Welcome
 	 			<h4>
+				 
 	 				<?php echo $_SESSION['login_user']; ?>
 	 			</h4>
  			</div>
@@ -48,6 +53,16 @@
  			<?php
  				echo "<b>";
  				echo "<table class='table table-bordered'>";
+
+				 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> User Id: </b>";
+	 					echo "</td>";
+
+	 					echo "<td>";
+	 						echo $row['USER_ID'];
+	 					echo "</td>";
+	 				echo "</tr>";
 	 				echo "<tr>";
 	 					echo "<td>";
 	 						echo "<b> First Name: </b>";
@@ -69,37 +84,28 @@
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> User Name: </b>";
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['username'];
-	 					echo "</td>";
-	 				echo "</tr>";
-
-	 				echo "<tr>";
-	 					echo "<td>";
-	 						echo "<b> Password: </b>";
-	 					echo "</td>";
-	 					echo "<td>";
-	 						echo $row['password'];
-	 					echo "</td>";
-	 				echo "</tr>";
-
-	 				echo "<tr>";
-	 					echo "<td>";
 	 						echo "<b> Email: </b>";	
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['email'];
+	 						echo $row['EMAIL'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
 	 				echo "<tr>";
 	 					echo "<td>";
-	 						echo "<b> Contact: </b>";
+	 						echo "<b> Phone Number: </b>";
 	 					echo "</td>";
 	 					echo "<td>";
-	 						echo $row['contact'];
+	 						echo $row['PHONE_NUMBER'];
+	 					echo "</td>";
+	 				echo "</tr>";
+
+					 echo "<tr>";
+	 					echo "<td>";
+	 						echo "<b> Date Of Birth: </b>";
+	 					echo "</td>";
+	 					echo "<td>";
+	 						echo $row['DATE_OF_BIRTH'];
 	 					echo "</td>";
 	 				echo "</tr>";
 
